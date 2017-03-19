@@ -1,5 +1,5 @@
 
-	define(['jquery','echarts','cookie'],function ($,echarts) {
+	define(['jquery','echarts','template','cookie'],function ($,echarts,template) {
 
 		// 左边栏的列表显示隐藏---------------------------------------------------------------
 
@@ -56,8 +56,19 @@
 
 		// 用户信息变更-------------------------------------------------------------------------
 
-		var resultObj=JSON.parse($.cookie('result'));   //将cookie中的result属性值装换成对象格式
-		$('.aside>.profile>.avatar>img').attr('src',resultObj['tc_avatar']);
-		$('.aside>.profile>h4').html(resultObj['tc_name']); //设置图片路径和用户名
+		// var resultObj=JSON.parse($.cookie('result'));   //将cookie中的result属性值装换成对象格式
+		// $('.aside>.profile>.avatar>img').attr('src',resultObj['tc_avatar']);
+		// $('.aside>.profile>h4').html(resultObj['tc_name']); //设置图片路径和用户名
+
+
+		// 尝试使用模板渲染用户信息
+		var resultObj=JSON.parse($.cookie('result'));
+		var tem=' <div class="avatar img-circle">'+
+			'<img src="{{tc_avatar}}">'+
+			'</div>'+
+			'<h4>{{tc_name}}</h4>';				//省去创建模板的步骤
+		var render=template.compile(tem);		//调用template的compile方法，传入拼接字符串，返回一个函数
+		var html=render(resultObj);				//解析数据
+		$('.aside>.profile').html(html);		//渲染页面
 
 	})
