@@ -39,12 +39,6 @@
 			return false;	//阻止默认跳转行为
 		});
 
-		// 用户信息变更-------------------------------------------------------------------------
-
-		var resultObj=JSON.parse($.cookie('result'));   //将cookie中的result属性值装换成对象格式
-		$('.aside>.profile>.avatar>img').attr('src',resultObj['tc_avatar']);
-		$('.aside>.profile>h4').html(resultObj['tc_name']); //设置图片路径和用户名
-
 		// 退出登录功能-------------------------------------------------------------------------
 
 		$('#logoutId').click(function () {
@@ -59,5 +53,11 @@
 				}
 			})
 		})
+
+		// 用户信息变更-------------------------------------------------------------------------
+
+		var resultObj=JSON.parse($.cookie('result'));   //将cookie中的result属性值装换成对象格式
+		$('.aside>.profile>.avatar>img').attr('src',resultObj['tc_avatar']);
+		$('.aside>.profile>h4').html(resultObj['tc_name']); //设置图片路径和用户名
 
 	})
