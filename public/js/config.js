@@ -8,7 +8,10 @@ require.config({
         cookie: 'assets/jquery-cookie/jquery.cookie',
         echarts: 'assets/echarts/echarts.min',
         template:'assets/artTemplate/template',
-        bootstrap:'assets/bootstrap/js/bootstrap'
+        bootstrap:'assets/bootstrap/js/bootstrap',
+        util:'js/util',
+        overlay:'js/overlay',
+        nprogress:'assets/nprogress/nprogress'
     },
     shim:{
         bootstrap:{

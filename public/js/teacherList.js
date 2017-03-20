@@ -2,7 +2,11 @@
  * Created by Administrator on 2017/3/19.
  */
 
-define(['template', 'jquery', 'bootstrap'], function (template, $) {
+define(['template', 'jquery', 'util', 'bootstrap', 'overlay'], function (template, $, util) {
+
+    // 点击列表高亮显示
+    util.setMenu(location.pathname);
+
     // 渲染讲师列表
     $.ajax({                        //发送ajax请求
         type: 'get',
@@ -38,7 +42,7 @@ define(['template', 'jquery', 'bootstrap'], function (template, $) {
             $('.operationBox').find('a:eq(2)').click(function () {
                 var tcId = $(this).parents('td').attr('data-tcId');   //在属性中保存参数
                 var tcStatus = $(this).parents('td').attr('data-status');
-                var that=this;
+                var that = this;
                 $.ajax({
                     type: 'post',
                     url: '/api/teacher/handle',
@@ -46,9 +50,9 @@ define(['template', 'jquery', 'bootstrap'], function (template, $) {
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
-                        if(data.result.tc_status==0){
+                        if (data.result.tc_status == 0) {
                             $(that).text('注销');
-                        }else {
+                        } else {
                             $(that).text('启用');
                         }
                     }
