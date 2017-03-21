@@ -9,13 +9,18 @@ require.config({
         echarts: 'assets/echarts/echarts.min',
         template:'assets/artTemplate/template',
         bootstrap:'assets/bootstrap/js/bootstrap',
+        nprogress:'assets/nprogress/nprogress',
+        datepicker:'assets/bootstrap-datepicker/js/bootstrap-datepicker',
+        language:'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         util:'js/util',
         overlay:'js/overlay',
-        nprogress:'assets/nprogress/nprogress'
     },
     shim:{
         bootstrap:{
             deps:['jquery']
+        },
+        language:{
+            deps:['jquery','datepicker']
         }
     }
 })

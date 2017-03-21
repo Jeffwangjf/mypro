@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/3/19.
  */
 
-define(['template', 'jquery', 'util', 'bootstrap', 'overlay'], function (template, $, util) {
+define(['template', 'jquery', 'util', 'bootstrap'], function (template, $, util) {
 
 
     // 渲染讲师列表
