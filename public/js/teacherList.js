@@ -4,8 +4,6 @@
 
 define(['template', 'jquery', 'util', 'bootstrap', 'overlay'], function (template, $, util) {
 
-    // 点击列表高亮显示
-    util.setMenu(location.pathname);
 
     // 渲染讲师列表
     $.ajax({                        //发送ajax请求
@@ -55,6 +53,7 @@ define(['template', 'jquery', 'util', 'bootstrap', 'overlay'], function (templat
                         } else {
                             $(that).text('启用');
                         }
+                        $(that).parents('td').attr('data-status',data.result.tc_status);    //修改参数值，发送请求的参数是0，返回则是1
                     }
                 })
             })

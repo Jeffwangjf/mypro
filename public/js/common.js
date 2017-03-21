@@ -1,5 +1,5 @@
 
-	define(['jquery','echarts','template','cookie'],function ($,echarts,template) {
+	define(['jquery','echarts','template','util','cookie','overlay'],function ($,echarts,template,util) {
 
 		// 左边栏的列表显示隐藏---------------------------------------------------------------
 
@@ -70,5 +70,9 @@
 		var render=template.compile(tem);		//调用template的compile方法，传入拼接字符串，返回一个函数
 		var html=render(resultObj);				//解析数据
 		$('.aside>.profile').html(html);		//渲染页面
+
+
+		// 点击列表高亮显示
+		util.setMenu(location.pathname);
 
 	})

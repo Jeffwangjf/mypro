@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/3/18.
  */
-define(['echarts'],function (echarts) {
+define(['echarts','overlay'],function (echarts) {
 
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
