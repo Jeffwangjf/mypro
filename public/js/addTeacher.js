@@ -2,9 +2,10 @@
  * Created by Administrator on 2017/3/21.
  */
 
-define(['jquery','util','template', 'datepicker', 'language'], function ($,util,template) {
+define(['jquery','util','template', 'datepicker', 'language','validate'], function ($,util,template) {
 
     // 编辑页面
+
     var tc_id=util.paramValue('tc_id');
     if(tc_id){
         $.ajax({
@@ -21,11 +22,12 @@ define(['jquery','util','template', 'datepicker', 'language'], function ($,util,
                 // 解析模板
                 var html=template('addTeacherFormTempalte',data.result);
                 // 渲染到相应位置
-                $('#addTeacherForm').html(html);
+                $('#addTeacherPage').html(html);
             }
         })
     }else {
-        // 添加页面
+
+    // 添加页面
 
         // 解析模板
         var html=template('addTeacherFormTempalte',{
@@ -33,7 +35,7 @@ define(['jquery','util','template', 'datepicker', 'language'], function ($,util,
             btnInfo:'添加'
         })
         // 渲染到页面
-        $('#addTeacherForm').html(html);
+        $('#addTeacherPage').html(html);
     }
 
 
