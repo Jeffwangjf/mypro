@@ -8,26 +8,29 @@ define(['jquery', 'template', 'ckeditor', 'region', 'validate', 'form', 'datepic
         url: '/api/teacher/profile',
         dataType: 'json',
         success: function (data) {
-            console.log(data);
             var html = template('settingsTpl', data.result);
             $('#putSettingsTpl').html(html);
 
             // 执行图片上传
             $('#upfile').uploadify({
-                swf: '/public/assets/uploadify/uploadify.swf',
                 width:120,
                 height:120,
                 type:'post',
                 buttonText: '',
                 fileObjName: 'tc_avatar',
-                data:{tc_avatar:'tc_avator'},
+                swf: '/public/assets/uploadify/uploadify.swf',
                 uploader: '/api/uploader/avatar',
                 onUploadSuccess : function(file,data){
-                    console.log(data);  //???????????????????????
+                    data=JSON.parse(data);
+                    $('.preview img').attr('src',data.result.path);
                 }
             })
-
-
+            
+            // 添加日期插件
+            
+            // 添加省市县三级联动
+            
+            
         }
     })
 })
