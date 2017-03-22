@@ -13,6 +13,7 @@ require.config({
         datepicker:'assets/bootstrap-datepicker/js/bootstrap-datepicker',
         language:'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         validate:'assets/validate/jquery-validate',
+        form : 'assets/jquery-form/jquery.form',
         util:'js/util',
         overlay:'js/overlay',
     },

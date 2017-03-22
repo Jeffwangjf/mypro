@@ -39,20 +39,23 @@
                         <input type="hidden" name="tc_id" value='{{tc_id}}'>
                     {{/if}}
                     <!--为表单标签添加name属性-->
-                    <input type="text" class="form-control input-sm" placeholder="讲师名称" name='tc_name' value='{{tc_name}}'>
+                    <input data-required data-description='tcName' data-describedby='tcNameInfo' type="text" class="form-control input-sm" placeholder="讲师名称" name='tc_name' value='{{tc_name}}'>
                 </div>
+                <div class="col-xs-2" id="tcNameInfo"></div>
             </div>
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">密码</label>
                 <div class="col-xs-4">
-                    <input type="password" class="form-control input-sm" name='tc_pass'>
+                    <input data-required data-pattern='^\d{6}$' data-description='tcPass' data-describedby='tcPassInfo'  type="password" class="form-control input-sm" name='tc_pass'>
                 </div>
+                <div class="col-xs-2" id="tcPassInfo"></div>
             </div>
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">入职时间</label>
                 <div class="col-xs-4">
-                    <input type="text" class="form-control input-sm" name='tc_join_date' value='{{tc_join_date}}' data-provide="datepicker" data-date-language='zh-CN' data-date-format='yyyy-mm-dd' data-date-end-date='0d'>
+                    <input data-required data-description='tcJoinDate' data-describedby='tcJoinDateInfo'  type="text" class="form-control input-sm" name='tc_join_date' value='{{tc_join_date}}' data-provide="datepicker" data-date-language='zh-CN' data-date-format='yyyy-mm-dd' data-date-end-date='0d'>
                 </div>
+                <div class="col-xs-2" id="tcJoinDateInfo"></div>
             </div>
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">类型</label>
@@ -76,7 +79,7 @@
             </div>
             <div class="form-group">
                 <div class="col-xs-7">
-                    <a href="./advert_list.html" class="btn btn-success btn-sm pull-right">{{btnInfo}}</a>
+                    <input type="submit" value="{{btnInfo}}" class="btn btn-success btn-sm pull-right">
                 </div>
             </div>
         </form>
