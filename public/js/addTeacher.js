@@ -33,7 +33,7 @@ define(['jquery', 'util', 'template', 'datepicker', 'language', 'validate','form
         // 解析模板
         var html = template('addTeacherFormTempalte', {
             titleInfo: '添加',
-            btnInfo: '添加'
+            btnInfo: '添 加'
         })
         // 渲染到页面
         $('#addTeacherPage').html(html);
@@ -42,7 +42,7 @@ define(['jquery', 'util', 'template', 'datepicker', 'language', 'validate','form
 
     // 定义表单验证方法
     function checkForm(url) {
-        $('#addTeacherForm').validate({
+        $('#addTeacherForm').validate({     //默认有提交
             onkeyup:'true',
             sendForm: false,     //阻止默认提交
             eachInvalidField: function () {
