@@ -2,12 +2,13 @@
  * Created by Administrator on 2017/3/22.
  */
 
-define(['jquery', 'template', 'ckeditor', 'region', 'validate', 'form', 'datepicker', 'language', 'uploadify'], function ($, template, CKEDITOR, uploadify) {
+define(['jquery', 'template', 'ckeditor', 'region', 'validate', 'form', 'datepicker', 'language', 'uploadify'], function ($, template, CKEDITOR ) {
     $.ajax({
         type: 'get',
         url: '/api/teacher/profile',
         dataType: 'json',
         success: function (data) {
+            console.log(data);
             var html = template('settingsTpl', data.result);
             $('#putSettingsTpl').html(html);
 
@@ -29,8 +30,16 @@ define(['jquery', 'template', 'ckeditor', 'region', 'validate', 'form', 'datepic
             // 添加日期插件
             
             // 添加省市县三级联动
-            
-            
+            $('.hometown').region({
+                url:'/public/assets/jquery-region/region.json'    //引入json文件
+            })
+
+            // 添加富文本插件
+            CKEDITOR.replace('ckeditor',{
+                toolbarGroups : [
+                    { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] }
+                ]
+            });
         }
     })
 })
