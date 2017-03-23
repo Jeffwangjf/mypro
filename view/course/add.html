@@ -28,11 +28,11 @@
                         <div class="form-group">
                             <label for="" class="col-xs-2 control-label">课程标题</label>
                             <div class="col-xs-9">
-                                <input type="text" class="form-control input-sm" placeholder="请填写课程标题">
+                                <input name='cs_name' type="text" class="form-control input-sm" placeholder="请填写课程标题">
                             </div>
                         </div>
                         <div class="col-xs-11">
-                            <a href="basic.html" class="btn btn-success btn-sm pull-right">创建课程</a>
+                            <input id='addCourseBtn' type="submit" value="创建课程"  class="btn btn-success btn-sm pull-right">
                         </div>
                     </form>
                     <div class="extra col-xs-3">
@@ -45,5 +45,8 @@
     </div>
 
     <?php include('/view/common/script.html')?>
+    <script>
+        require(['js/addCourse']);
+    </script>
 </body>
 </html>
